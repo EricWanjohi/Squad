@@ -25,6 +25,21 @@ public class App{
 
 		post("/squads", (request, response) -> {
 			Map<String, Object> model = new HashMap<String, Object>(); //Creates a new HashMap object 
+			ArrayList<heros> inputtedheros = request.session().attribute("name");
+			if(inputtedheros == null){
+				inputtedheros = new ArrayList<heros>();
+				request.session().attribute("name", inputtedheros);
+				request.session().attribute("age", inputtedheros);
+				request.session().attribute("powers", inputtedheros);
+				request.session().attribute("weaknesses", inputtedheros);
+			}
+			String name = request.queryParams("name");
+			String age = request.queryParams("age");
+			String powers = request.queryParams("powers");
+			String weaknesses = request.queryParams("weaknesses");
+			heros newHero = new heros(name, age, powers, weaknesses);
+			inputtedheros.add(newHero);
+
 			model.put("template", "templates/squads.vtl");
 			return new ModelAndView(model, layout);
 		}, new VelocityTemplateEngine()); 

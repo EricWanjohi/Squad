@@ -1,15 +1,20 @@
 <div class="container">
+<h3 align="center">Add your Hero to a Squad</h3>
 	<form action="/squads" method="post">
 		<div>
 			<label>Squad Name: </label>
 			<input type="text" name="squadName" class="form-control">
-		</div><br>
-		<div class="dropdown">
-			<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Add Superhero to your Squad <span class="caret"></span></button>
-			<ul class="dropdown-menu">
-				<li>$name</li>
-			</ul>
 		</div>
+		<div>
+			<label>Maximum Size: </label>
+			<input type="number" name="maxSize" class="form-control" max="10" min="1">
+		</div>
+		<div>
+			<label>Cause: </label>
+			<input type="text" name="cause" class="form-control">
+		</div>
+		<br>
+		<button class="btn btn-success" type="submit">Create Squad of Superheroes</button>
 
 	</form>
 </div>
