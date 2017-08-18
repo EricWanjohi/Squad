@@ -12,8 +12,20 @@ public class App{
 
 		// Squad Routes...
 		get("/", (request, response) -> {
-			Map<String, Object> model = new HashMap<String, Object>();
+			Map<String, Object> model = new HashMap<String, Object>(); //Creates a new HashMap object 
 			model.put("template", "templates/hero.vtl");
+			return new ModelAndView(model, layout);
+		}, new VelocityTemplateEngine()); 
+
+		get("/squad", (request, response) -> {
+			Map<String, Object> model = new HashMap<String, Object>(); //Creates a new HashMap object 
+			model.put("template", "templates/squad.vtl");
+			return new ModelAndView(model, layout);
+		}, new VelocityTemplateEngine()); 
+
+		post("/squads", (request, response) -> {
+			Map<String, Object> model = new HashMap<String, Object>(); //Creates a new HashMap object 
+			model.put("template", "templates/squads.vtl");
 			return new ModelAndView(model, layout);
 		}, new VelocityTemplateEngine()); 
 
@@ -38,5 +50,7 @@ public class App{
 			model.put("template", "templates/newHero.vtl");
 			return new ModelAndView(model, layout);
 		}, new VelocityTemplateEngine());
+
+
 	}
 }
