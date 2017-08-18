@@ -1,1 +1,1 @@
-web: ./build/install/App/bin/App
+web: ./build/install/Squad/bin/Squad
