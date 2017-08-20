@@ -24,6 +24,12 @@ public class App{
 			return new ModelAndView(model, layout);
 		}, new VelocityTemplateEngine()); 
 
+		get("/index", (request, response) -> {
+			Map<String, Object> model = new HashMap<String, Object>(); //Creates a new HashMap object 
+			model.put("template", "templates/index.vtl");
+			return new ModelAndView(model, layout);
+		}, new VelocityTemplateEngine()); 
+
 		post("/squads", (request, response) -> {
 			Map<String, Object> model = new HashMap<String, Object>(); //Creates a new HashMap object 
 			List<heros> inputtedheros = new ArrayList<heros>();
