@@ -32,7 +32,8 @@
 ehthumbs.db
 Thumbs.db
 
-# Java and Gradle #
+# Java, Procfile and Gradle #
 ############
 build/
 .gradle/
+Procfile
