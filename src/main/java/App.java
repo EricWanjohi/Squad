@@ -32,20 +32,18 @@ public class App{
 
 		post("/squads", (request, response) -> {
 			Map<String, Object> model = new HashMap<String, Object>(); //Creates a new HashMap object 
-			List<heros> inputtedheros = new ArrayList<heros>();
-			if(inputtedheros == null){
-				inputtedheros = new ArrayList<heros>();
-				request.session().attribute("name", inputtedheros);
-				request.session().attribute("age", inputtedheros);
-				request.session().attribute("powers", inputtedheros);
-				request.session().attribute("weaknesses", inputtedheros);
+			List<Squad> inputtedSquad = new ArrayList<Squad>();
+			if(inputtedSquad == null){
+				inputtedSquad = new ArrayList<Squad>();
+				request.session().attribute("squadName", inputtedSquad);
+				request.session().attribute("maxSize", inputtedSquad);
+				request.session().attribute("cause", inputtedSquad);
 			}
-			String name = request.queryParams("name");
-			String age = request.queryParams("age");
-			String powers = request.queryParams("powers");
-			String weaknesses = request.queryParams("weaknesses");
-			heros newHero = new heros(name, age, powers, weaknesses);
-			inputtedheros.add(newHero);
+			String squadName = request.queryParams("squadName");
+			Integer maxSize = Integer.parseInt(request.queryParams("maxSize"));
+			String cause = request.queryParams("cause");
+			Squad newSquad = new Squad(squadName, maxSize, cause);
+			inputtedSquad.add(newSquad);
 
 			model.put("template", "templates/squads.vtl");
 			return new ModelAndView(model, layout);
