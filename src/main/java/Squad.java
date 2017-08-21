@@ -5,7 +5,7 @@ public class Squad{
 		private String mSquadName;
 		private Integer mMaxSize;
 		private String mCause;
-		private static List<Squad> instances = new ArraList<Squad>();
+		private static List<Squad> instances = new ArrayList<Squad>();
 
 	public Squad(String squadName, Integer maxSize, String cause){
 		mSquadName = squadName;
